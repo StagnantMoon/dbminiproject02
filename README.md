@@ -14,6 +14,7 @@ Install Python 3
 pip install PyQt6
 pip install matplotlib
 pip install -r requirements.txt
+pip install panda
 
 ### How to Run the Project
 
