@@ -43,6 +43,8 @@ top_5_decline.plot(ax=axes[1], subplots=True, x="Name", y=["Pop_Change"], kind="
 # top_5_decline.set_label("Population Decrease")
 
 # Show Plot
+plt.savefig('charts/PopulationGrowth.png')
+
 plt.show()
 
 # Code to Test Plotting works
