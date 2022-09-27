@@ -18,14 +18,31 @@ data = pd.read_csv(url)
 # Organize Data
 df = pd.DataFrame(data, columns=["Name", "2022", "2010", "2000", "1990", "1980", "Rank"])
 df = df.assign(Pop_Change=df["2022"] - df["1980"])
-top_10_country = df.nlargest(n=10, columns=["2022", "1980"])
-print(top_10_country)
+# df = pd.DataFrame(data, columns=["Name", "2022", "1980", "Pop_Change"])
+# Largest Countries
+# top_10_country = df.nlargest(n=10, columns=["2022", "1980"])
+# print(top_10_country)
 
-less_than_5m = df[df["1990"] < 5000]
-print(less_than_5m)
-less_than_5m.plot()
-#plt.show()
+# Testing Less than Data
+# less_than_5m = df[df["1990"] < 5000]
+# print(less_than_5m)
+# less_than_5m.plot()
+# plt.show()
+
+
 print(df)
+top_7_growth = df.nlargest(n=7, columns=["Pop_Change"])
+top_5_decline = df.nsmallest(n=5, columns=["Pop_Change"])
+print(top_7_growth)
+print("Decline")
+print(top_5_decline)
+
+# Plot Styles
+plt.style.use('dark_background')
+top_7_growth.plot(x="Name", y=["Pop_Change", "1980", "2022"], kind="bar")
+
+plt.show()
+
 #plt.plot([1, 2, 3, 4])
 #plt.ylabel('some numbers')
 #plt.show()
